@@ -1,33 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState } from 'react';
+
+import ToDoSection from './components/ToDoSection'
+
+import tasks from './assets/data';
+
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [ filter, setFilter ] = useState("all");
 
+  console.log(filter)
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <header className="header">
+        <div>
+          <img src="./assets/pngwing.com.png" alt="logo de la to do liste" className="logo" />
+        </div>
+        <nav className="nav">
+          <button type="button" onClick={() => setFilter("all")}>Global</button>
+          <button type="button" onClick={() => setFilter("maison")}>Maison</button>
+          <button type="button" onClick={() => setFilter("sport")}>Sport</button>
+          <button type="button" onClick={() => setFilter("code")}>Code</button>
+        </nav>
+      </header>
+      <main>
+        { (filter === "maison" || filter === "all") ? <ToDoSection title="Home" tasks={tasks}/> : null}
+        { (filter === "sport" || filter === "all") ? <ToDoSection title="Sport" tasks={tasks}/> : null}
+        { (filter === "code" || filter === "all") ? <ToDoSection title="Code" tasks={tasks}/> : null }
+      </main>
     </>
   )
 }
