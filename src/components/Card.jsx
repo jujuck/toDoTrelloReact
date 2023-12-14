@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { FaRegStar, FaTrash } from 'react-icons/fa';
 
-import htmlcss from "../assets/htmlcss.png";
-
 const Card = ({ task }) => {
   const [like, setLike] = useState(false);
 
@@ -19,8 +17,6 @@ const Card = ({ task }) => {
       <div className="trash">
         <FaTrash />
       </div>
-      <img src={htmlcss} alt="Mon image" />
-      <img src="./public/htmlcsss.png" alt="Second image" />
     </div>
   )
 }

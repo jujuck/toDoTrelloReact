@@ -3,6 +3,7 @@ import { useState } from 'react';
 import ToDoSection from './components/ToDoSection'
 
 import tasks from './assets/data';
+import logo  from "./assets/wildcodeschool.png";
 
 import './App.css'
 
@@ -14,7 +15,7 @@ function App() {
     <>
       <header className="header">
         <div>
-          <img src="./assets/pngwing.com.png" alt="logo de la to do liste" className="logo" />
+          <img src={logo} alt="logo de la to do liste" className="logo" />
         </div>
         <nav className="nav">
           <button type="button" onClick={() => setFilter("all")}>Global</button>
